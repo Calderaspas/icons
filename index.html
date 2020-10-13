@@ -10,7 +10,12 @@
             background-color: #333;
         }
 
-        a {text-decoration: none; cursor: pointer;}
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+        }
+
         p {
             text-align: center;
             font-family: sans-serif;
@@ -26,11 +31,36 @@
             box-shadow: inset 3px 0px 15px -10px #f26e4b;
         }
 
-        a:hover  p,
+        a:hover p,
         a:active p,
-        a:focus  p {
+        a:focus p {
             color: #ddd;
         }
+
+        p::after {
+            content: "\0020\2713";
+            color: #f26e4b00;
+            position: absolute;
+            z-index: 5;
+            top: -15px;
+            padding: 0 0 0 3px;
+            left: calc(50vw + 60px);
+            background-color: #33333300;
+            transition-duration: 600ms;
+        }
+
+        p:hover::after {
+            color: #f26e4b;
+            background-color: #333333;
+            transition-duration: 600ms;
+        }
+
+        p:active::after,
+        p:focus::after {
+            color: #ddd;
+            transition-duration: 600ms;
+        }
+
     </style>
 </head>
 <body>
